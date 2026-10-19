@@ -5,6 +5,7 @@
  * Fiyatlar PlanSeeder'da; burada marka/akış sabitleri.
  */
 return [
+    'site_maintenance' => (bool) env('SITE_MAINTENANCE', false),
     'family' => 'mesajq',
     'app_base' => env('SAAS_APP_BASE', rtrim(env('APP_URL', 'https://mesajq.com'), '/') . '/app'),
 
