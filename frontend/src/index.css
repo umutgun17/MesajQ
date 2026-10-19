@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Yeniden tasarım tema token'ları (beta)
+   Skin A "soft"  → Base SaaS stili: ferah, pastel, geniş radius
+   Skin B "crisp" → daha rafine/keskin modern SaaS yorumu
+   ============================================================ */
+:root,
+:root[data-skin='soft'] {
+  --app-bg: #f4f6fb;
+  --surface: #ffffff;
+  --line: #eceff6;
+  --radius-card: 1.25rem;
+  --shadow-card: 0 2px 4px rgba(23, 32, 84, 0.03), 0 12px 28px -14px rgba(23, 32, 84, 0.1);
+  --primary: #6366f1;
+  --primary-strong: #4f46e5;
+  --primary-soft: #eef0ff;
+  --font-app: 'Nunito Sans Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+:root[data-skin='crisp'] {
+  --app-bg: #f9fafb;
+  --surface: #ffffff;
+  --line: #e7e9ef;
+  --radius-card: 0.75rem;
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --primary: #4f46e5;
+  --primary-strong: #4338ca;
+  --primary-soft: #eef2ff;
+  --font-app: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-app);
+}
+
+/* ------------------------------------------------------------
+   Beta reskin köprüsü: mevcut sayfalar tek tek elden geçene dek
+   yaygın kart desenini (bg-white rounded-xl shadow-sm border-gray-100)
+   tema token'larına bağlar. Sayfalar yeni sisteme taşındıkça bu
+   blok küçülüp kaldırılacak.
+   ------------------------------------------------------------ */
+.bg-gray-50 {
+  background-color: var(--app-bg);
+}
+.rounded-xl {
+  border-radius: var(--radius-card);
+}
+.shadow-sm {
+  box-shadow: var(--shadow-card);
+}
+.border-gray-100 {
+  border-color: var(--line);
+}
+.bg-indigo-600 {
+  background-color: var(--primary);
+}
+.hover\:bg-indigo-700:hover {
+  background-color: var(--primary-strong);
+}
+.text-indigo-600 {
+  color: var(--primary-strong);
+}
+.text-indigo-700 {
+  color: var(--primary-strong);
+}
+.bg-indigo-50 {
+  background-color: var(--primary-soft);
+}
+.border-gray-200 {
+  border-color: #e4e8f2;
+}
+.border-gray-300 {
+  border-color: #dde2ee;
+}
+.focus\:ring-indigo-500:focus,
+.focus\:ring-blue-500:focus {
+  --tw-ring-color: var(--primary);
+}
+
+/* Touch-friendly tap targets on mobile */
+@media (max-width: 767px) {
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Exceptions for inline/icon-only elements */
+  .inline-flex, span > button, .text-\[11px\] > button {
+    min-height: auto;
+    min-width: auto;
+  }
+}
+
+/* ============================================================
+   DARK MODE (beta) — data-theme="dark"
+   Sayfalar tek tek koyulaştırılmaz; yaygın utility sınıfları
+   burada koyu karşılıklarına eşlenir (Soft köprüsünün devamı).
+   ============================================================ */
+:root[data-theme='dark'] {
+  --app-bg: #12141d;
+  --surface: #1b1e2b;
+  --line: #272b3d;
+  --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 28px -14px rgba(0, 0, 0, 0.5);
+  --primary: #6d72f2;
+  --primary-strong: #a5b4fc;
+  --primary-soft: rgba(99, 102, 241, 0.18);
+  color-scheme: dark;
+}
+[data-theme='dark'] body { color: #e5e7f0; }
+[data-theme='dark'] .bg-white { background-color: var(--surface); }
+[data-theme='dark'] .bg-gray-100 { background-color: #242838; }
+[data-theme='dark'] .bg-gray-200 { background-color: #2b3044; }
+[data-theme='dark'] .hover\:bg-gray-50:hover { background-color: rgba(255, 255, 255, 0.04); }
+[data-theme='dark'] .hover\:bg-gray-100:hover { background-color: rgba(255, 255, 255, 0.07); }
+[data-theme='dark'] .hover\:bg-gray-200:hover { background-color: rgba(255, 255, 255, 0.1); }
+[data-theme='dark'] .text-gray-900 { color: #f0f1f7; }
+[data-theme='dark'] .text-gray-800 { color: #dfe2ec; }
+[data-theme='dark'] .text-gray-700 { color: #c6cad9; }
+[data-theme='dark'] .text-gray-600 { color: #a4aabf; }
+[data-theme='dark'] .text-gray-500 { color: #868da4; }
+[data-theme='dark'] .text-gray-400 { color: #6d748c; }
+[data-theme='dark'] .text-gray-300 { color: #4c526a; }
+[data-theme='dark'] .hover\:text-gray-900:hover { color: #f0f1f7; }
+[data-theme='dark'] .hover\:text-gray-700:hover { color: #c6cad9; }
+[data-theme='dark'] .hover\:text-gray-600:hover { color: #a4aabf; }
+[data-theme='dark'] .border-gray-200, [data-theme='dark'] .border-gray-300 { border-color: var(--line); }
+/* Tailwind v4'te divide-* çizgiyi son hariç her çocuğun alt kenarına uygular */
+[data-theme='dark'] .divide-gray-50 > :not(:last-child),
+[data-theme='dark'] .divide-gray-100 > :not(:last-child),
+[data-theme='dark'] .divide-indigo-100\/60 > :not(:last-child) { border-color: var(--line); }
+[data-theme='dark'] .border-t { border-color: var(--line); }
+[data-theme='dark'] input::placeholder, [data-theme='dark'] textarea::placeholder { color: #5b617a; }
+[data-theme='dark'] .shadow-lg { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55); }
+[data-theme='dark'] .bg-indigo-50 { background-color: rgba(99, 102, 241, 0.12); }
+[data-theme='dark'] .bg-indigo-100 { background-color: rgba(99, 102, 241, 0.2); }
+[data-theme='dark'] .text-indigo-500, [data-theme='dark'] .text-indigo-600,
+[data-theme='dark'] .text-indigo-700, [data-theme='dark'] .text-indigo-800 { color: #a5b4fc; }
+[data-theme='dark'] .border-indigo-200, [data-theme='dark'] .border-indigo-300 { border-color: rgba(99, 102, 241, 0.35); }
+[data-theme='dark'] .bg-sky-50 { background-color: rgba(14, 165, 233, 0.12); }
+[data-theme='dark'] .bg-sky-100 { background-color: rgba(14, 165, 233, 0.2); }
+[data-theme='dark'] .text-sky-500, [data-theme='dark'] .text-sky-600,
+[data-theme='dark'] .text-sky-700, [data-theme='dark'] .text-sky-800 { color: #7dd3fc; }
+[data-theme='dark'] .border-sky-200, [data-theme='dark'] .border-sky-300 { border-color: rgba(14, 165, 233, 0.35); }
+[data-theme='dark'] .bg-amber-50 { background-color: rgba(245, 158, 11, 0.12); }
+[data-theme='dark'] .bg-amber-100 { background-color: rgba(245, 158, 11, 0.2); }
+[data-theme='dark'] .text-amber-500, [data-theme='dark'] .text-amber-600,
+[data-theme='dark'] .text-amber-700, [data-theme='dark'] .text-amber-800 { color: #fcd34d; }
+[data-theme='dark'] .border-amber-200, [data-theme='dark'] .border-amber-300 { border-color: rgba(245, 158, 11, 0.35); }
+[data-theme='dark'] .bg-rose-50 { background-color: rgba(244, 63, 94, 0.12); }
+[data-theme='dark'] .bg-rose-100 { background-color: rgba(244, 63, 94, 0.2); }
+[data-theme='dark'] .text-rose-500, [data-theme='dark'] .text-rose-600,
+[data-theme='dark'] .text-rose-700, [data-theme='dark'] .text-rose-800 { color: #fda4af; }
+[data-theme='dark'] .border-rose-200, [data-theme='dark'] .border-rose-300 { border-color: rgba(244, 63, 94, 0.35); }
+[data-theme='dark'] .bg-violet-50 { background-color: rgba(139, 92, 246, 0.12); }
+[data-theme='dark'] .bg-violet-100 { background-color: rgba(139, 92, 246, 0.2); }
+[data-theme='dark'] .text-violet-500, [data-theme='dark'] .text-violet-600,
+[data-theme='dark'] .text-violet-700, [data-theme='dark'] .text-violet-800 { color: #c4b5fd; }
+[data-theme='dark'] .border-violet-200, [data-theme='dark'] .border-violet-300 { border-color: rgba(139, 92, 246, 0.35); }
+[data-theme='dark'] .bg-pink-50 { background-color: rgba(236, 72, 153, 0.12); }
+[data-theme='dark'] .bg-pink-100 { background-color: rgba(236, 72, 153, 0.2); }
+[data-theme='dark'] .text-pink-500, [data-theme='dark'] .text-pink-600,
+[data-theme='dark'] .text-pink-700, [data-theme='dark'] .text-pink-800 { color: #f9a8d4; }
+[data-theme='dark'] .border-pink-200, [data-theme='dark'] .border-pink-300 { border-color: rgba(236, 72, 153, 0.35); }
+[data-theme='dark'] .bg-emerald-50 { background-color: rgba(16, 185, 129, 0.12); }
+[data-theme='dark'] .bg-emerald-100 { background-color: rgba(16, 185, 129, 0.2); }
+[data-theme='dark'] .text-emerald-500, [data-theme='dark'] .text-emerald-600,
+[data-theme='dark'] .text-emerald-700, [data-theme='dark'] .text-emerald-800 { color: #6ee7b7; }
+[data-theme='dark'] .border-emerald-200, [data-theme='dark'] .border-emerald-300 { border-color: rgba(16, 185, 129, 0.35); }
+[data-theme='dark'] .bg-green-50 { background-color: rgba(34, 197, 94, 0.12); }
+[data-theme='dark'] .bg-green-100 { background-color: rgba(34, 197, 94, 0.2); }
+[data-theme='dark'] .text-green-500, [data-theme='dark'] .text-green-600,
+[data-theme='dark'] .text-green-700, [data-theme='dark'] .text-green-800 { color: #86efac; }
+[data-theme='dark'] .border-green-200, [data-theme='dark'] .border-green-300 { border-color: rgba(34, 197, 94, 0.35); }
+[data-theme='dark'] .bg-red-50 { background-color: rgba(239, 68, 68, 0.12); }
+[data-theme='dark'] .bg-red-100 { background-color: rgba(239, 68, 68, 0.2); }
+[data-theme='dark'] .text-red-500, [data-theme='dark'] .text-red-600,
+[data-theme='dark'] .text-red-700, [data-theme='dark'] .text-red-800 { color: #fca5a5; }
+[data-theme='dark'] .border-red-200, [data-theme='dark'] .border-red-300 { border-color: rgba(239, 68, 68, 0.35); }
+[data-theme='dark'] .bg-yellow-50 { background-color: rgba(234, 179, 8, 0.12); }
+[data-theme='dark'] .bg-yellow-100 { background-color: rgba(234, 179, 8, 0.2); }
+[data-theme='dark'] .text-yellow-500, [data-theme='dark'] .text-yellow-600,
+[data-theme='dark'] .text-yellow-700, [data-theme='dark'] .text-yellow-800 { color: #fde047; }
+[data-theme='dark'] .border-yellow-200, [data-theme='dark'] .border-yellow-300 { border-color: rgba(234, 179, 8, 0.35); }
+[data-theme='dark'] .bg-blue-50 { background-color: rgba(59, 130, 246, 0.12); }
+[data-theme='dark'] .bg-blue-100 { background-color: rgba(59, 130, 246, 0.2); }
+[data-theme='dark'] .text-blue-500, [data-theme='dark'] .text-blue-600,
+[data-theme='dark'] .text-blue-700, [data-theme='dark'] .text-blue-800 { color: #93c5fd; }
+[data-theme='dark'] .border-blue-200, [data-theme='dark'] .border-blue-300 { border-color: rgba(59, 130, 246, 0.35); }
+[data-theme='dark'] .bg-purple-50 { background-color: rgba(168, 85, 247, 0.12); }
+[data-theme='dark'] .bg-purple-100 { background-color: rgba(168, 85, 247, 0.2); }
+[data-theme='dark'] .text-purple-500, [data-theme='dark'] .text-purple-600,
+[data-theme='dark'] .text-purple-700, [data-theme='dark'] .text-purple-800 { color: #d8b4fe; }
+[data-theme='dark'] .border-purple-200, [data-theme='dark'] .border-purple-300 { border-color: rgba(168, 85, 247, 0.35); }
+[data-theme='dark'] .bg-orange-50 { background-color: rgba(249, 115, 22, 0.12); }
+[data-theme='dark'] .bg-orange-100 { background-color: rgba(249, 115, 22, 0.2); }
+[data-theme='dark'] .text-orange-500, [data-theme='dark'] .text-orange-600,
+[data-theme='dark'] .text-orange-700, [data-theme='dark'] .text-orange-800 { color: #fdba74; }
+[data-theme='dark'] .border-orange-200, [data-theme='dark'] .border-orange-300 { border-color: rgba(249, 115, 22, 0.35); }
+[data-theme='dark'] .bg-teal-50 { background-color: rgba(20, 184, 166, 0.12); }
+[data-theme='dark'] .bg-teal-100 { background-color: rgba(20, 184, 166, 0.2); }
+[data-theme='dark'] .text-teal-500, [data-theme='dark'] .text-teal-600,
+[data-theme='dark'] .text-teal-700, [data-theme='dark'] .text-teal-800 { color: #5eead4; }
+[data-theme='dark'] .border-teal-200, [data-theme='dark'] .border-teal-300 { border-color: rgba(20, 184, 166, 0.35); }
+[data-theme='dark'] .bg-cyan-50 { background-color: rgba(6, 182, 212, 0.12); }
+[data-theme='dark'] .bg-cyan-100 { background-color: rgba(6, 182, 212, 0.2); }
+[data-theme='dark'] .text-cyan-500, [data-theme='dark'] .text-cyan-600,
+[data-theme='dark'] .text-cyan-700, [data-theme='dark'] .text-cyan-800 { color: #67e8f9; }
+[data-theme='dark'] .border-cyan-200, [data-theme='dark'] .border-cyan-300 { border-color: rgba(6, 182, 212, 0.35); }
+[data-theme='dark'] .bg-lime-50 { background-color: rgba(132, 204, 22, 0.12); }
+[data-theme='dark'] .bg-lime-100 { background-color: rgba(132, 204, 22, 0.2); }
+[data-theme='dark'] .text-lime-500, [data-theme='dark'] .text-lime-600,
+[data-theme='dark'] .text-lime-700, [data-theme='dark'] .text-lime-800 { color: #bef264; }
+[data-theme='dark'] .border-lime-200, [data-theme='dark'] .border-lime-300 { border-color: rgba(132, 204, 22, 0.35); }
+[data-theme='dark'] .bg-slate-50 { background-color: rgba(100, 116, 139, 0.12); }
+[data-theme='dark'] .bg-slate-100 { background-color: rgba(100, 116, 139, 0.2); }
+[data-theme='dark'] .text-slate-500, [data-theme='dark'] .text-slate-600,
+[data-theme='dark'] .text-slate-700, [data-theme='dark'] .text-slate-800 { color: #cbd5e1; }
+[data-theme='dark'] .border-slate-200, [data-theme='dark'] .border-slate-300 { border-color: rgba(100, 116, 139, 0.35); }
+
+/* Opaklık varyantları (bg-*-50/NN, bg-white/NN) ayrı sınıf adları olduğundan
+   yukarıdaki .bg-*-50 kuralları onları yakalamaz; koyu karşılıkları burada. */
+[data-theme='dark'] .bg-sky-50\/60 { background-color: rgba(14, 165, 233, 0.1); }
+[data-theme='dark'] .bg-indigo-50\/30, [data-theme='dark'] .bg-indigo-50\/40,
+[data-theme='dark'] .bg-indigo-50\/50, [data-theme='dark'] .bg-indigo-50\/60 { background-color: rgba(99, 102, 241, 0.1); }
+[data-theme='dark'] .bg-gray-50\/40, [data-theme='dark'] .bg-gray-50\/50,
+[data-theme='dark'] .bg-gray-50\/60 { background-color: rgba(255, 255, 255, 0.04); }
+[data-theme='dark'] .bg-emerald-50\/50, [data-theme='dark'] .bg-emerald-50\/60 { background-color: rgba(16, 185, 129, 0.1); }
+[data-theme='dark'] .bg-blue-50\/50 { background-color: rgba(59, 130, 246, 0.1); }
+[data-theme='dark'] .bg-violet-50\/40, [data-theme='dark'] .bg-violet-50\/50,
+[data-theme='dark'] .bg-violet-50\/60 { background-color: rgba(139, 92, 246, 0.1); }
+[data-theme='dark'] .bg-amber-50\/40, [data-theme='dark'] .bg-amber-50\/60 { background-color: rgba(245, 158, 11, 0.1); }
+[data-theme='dark'] .bg-yellow-50\/30 { background-color: rgba(234, 179, 8, 0.08); }
+[data-theme='dark'] .bg-red-50\/30 { background-color: rgba(239, 68, 68, 0.08); }
+[data-theme='dark'] .bg-pink-50\/50 { background-color: rgba(236, 72, 153, 0.1); }
+[data-theme='dark'] .bg-white\/70, [data-theme='dark'] .bg-white\/85,
+[data-theme='dark'] .bg-white\/90, [data-theme='dark'] .bg-white\/95 { background-color: rgba(27, 30, 43, 0.92); }
+[data-theme='dark'] .hover\:bg-white:hover { background-color: var(--surface); }
+[data-theme='dark'] .focus\:bg-white:focus { background-color: #232738; }
+
+/* Siyah word-mark'lı logo görselleri koyu temada beyaza çevrilir;
+   hue-rotate mor vurgu noktasının rengini korur. */
+[data-theme='dark'] .brand-dark-invert { filter: invert(1) hue-rotate(180deg); }

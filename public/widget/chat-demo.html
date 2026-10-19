@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Yunbi AI Chatbot — Demo</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; background: #f8fafc; color: #0f172a; }
+  .top { background: #111827; color: #fff; padding: 14px 24px; font-weight: 700; }
+  .page { max-width: 860px; margin: 40px auto; padding: 0 20px; }
+  h1 { font-size: 26px; }
+  p { line-height: 1.6; color: #334155; }
+  .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px 24px; margin: 18px 0; }
+  code { background: #f1f5f9; border-radius: 6px; padding: 2px 6px; font-size: 13px; }
+  ul { color: #334155; line-height: 1.8; }
+</style>
+</head>
+<body>
+<div class="top">Yunbi &middot; AI Chatbot Demo</div>
+<div class="page">
+  <h1>AI Chatbot &mdash; canlı demo</h1>
+  <p>Sağ alttaki sohbet balonuna tıklayın. Bot, Tonny Black kataloğu ve CRM verisiyle çalışır.</p>
+  <div class="card">
+    <strong>Deneyebilecekleriniz:</strong>
+    <ul>
+      <li>"Kırmızı spor ayakkabı arıyorum, 42 numara" &rarr; sohbet içinde ürün kartları</li>
+      <li>"Siparişim nerede?" &rarr; sipariş no + e-posta/telefon doğrulamalı gerçek durum + kargo takip</li>
+      <li>"İade nasıl yapılır?" &rarr; mağaza bilgi bankasından cevap</li>
+      <li>"Müşteri temsilcisi istiyorum" &rarr; insana devir; personel cevabı aynı pencereye düşer</li>
+    </ul>
+  </div>
+  <div class="card">
+    <strong>Kurulum</strong> (tema &lt;head&gt; veya body sonu):<br><br>
+    <code>&lt;script src="https://hub.yunbi.ai/widget/chat.js?v=14" data-tenant="MAGAZA" defer&gt;&lt;/script&gt;</code>
+  </div>
+</div>
+<script>
+  // Onizlemede carkin kulakcigini da goster (?wheel=0 ile kapatilir) — sohbet
+  // kulakciginin cark kulakcigiyla ayni boyda durdugu buradan gorulur.
+  (function () {
+    if (new URLSearchParams(location.search).get('wheel') === '0') return;
+    var css = document.createElement('link');
+    css.rel = 'stylesheet'; css.href = '/widget/wheel.css';
+    document.head.appendChild(css);
+    var tab = document.createElement('div');
+    tab.className = 'ywheel-tab ywheel-tab-right';
+    tab.innerHTML = '<button class="ywheel-tab-x">&times;</button>'
+      + '<button class="ywheel-tab-btn"><span class="ywheel-tab-label">\u0130ndirim F\u0131rsat\u0131</span>'
+      + '<svg class="ywheel-tab-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></button>';
+    document.body.appendChild(tab);
+  })();
+
+  // ?template=modern|minimal|soft — panel ayarini ezerek onizleme (dinamik enjeksiyon)
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var tpl = q.get('template') || '';
+    var lnch = q.get('launcher') || '';
+    var s = document.createElement('script');
+    s.src = '/widget/chat.js?v=14';
+    s.defer = true;
+    s.setAttribute('data-tenant', 'tonnyblack');
+    if (tpl) s.setAttribute('data-template', tpl);
+    if (lnch) s.setAttribute('data-launcher', lnch);
+    document.body.appendChild(s);
+  })();
+</script>
+</body>
+</html>

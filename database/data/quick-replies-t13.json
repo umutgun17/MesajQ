@@ -1,0 +1,70 @@
+[
+  {
+    "category": "Ürün Bilgisi",
+    "title": "Taşlar ve inciler orijinal",
+    "content": "Merhaba, kullandığımız bütün doğal taşlar ve inciler orijinaldir."
+  },
+  {
+    "category": "Ürün Bilgisi",
+    "title": "Malzeme (çelik / altın kaplama)",
+    "content": "Merhaba, bazı ürünlerimiz tamamen çeliktir, bazıları ise çelik üzeri altın kaplamadır efendim."
+  },
+  {
+    "category": "Ürün Bilgisi",
+    "title": "Saat ve kordon boyu",
+    "content": "Merhaba, saatlerimizin boyu her bileğe uygundur. Kordon uzunluğu modele göre değişebilmektedir efendim."
+  },
+  {
+    "category": "Ürün Bilgisi",
+    "title": "Ek fotoğraf yok",
+    "content": "Merhabalar, maalesef web sitemiz dışında ekstra bir fotoğraf bulunmamaktadır. Ancak en çok sattığımız modellerden biridir; satın aldıktan sonra beğenmemeniz durumunda iade sağlayabilirsiniz."
+  },
+  {
+    "category": "Ürün Bilgisi",
+    "title": "Özel tasarım alınmıyor",
+    "content": "Merhaba, özel tasarım siparişi almıyoruz; yalnızca sitemizde mevcut olan ürünlerimizi sunuyoruz. Sevgiler."
+  },
+
+  {
+    "category": "Sipariş & Satış",
+    "title": "Satış yalnızca web sitesinden",
+    "content": "Merhaba, fiziksel satış mağazamız bulunmamaktadır; satışlarımız yalnızca web sitemiz üzerinden gerçekleşmektedir: www.boiseatelier.com"
+  },
+  {
+    "category": "Sipariş & Satış",
+    "title": "İndirim talebi",
+    "content": "Merhabalar, maalesef ekstra bir indirim uygulanmamaktadır; fiyatlarımız indirimli fiyatlarımızdır. Ek olarak sepette 3.500 TL ve üzeri siparişlerde %15 indirim fırsatımız mevcuttur."
+  },
+  {
+    "category": "Sipariş & Satış",
+    "title": "Toptan satış koşulu",
+    "content": "Merhaba, toptan alım için 200 adet ve üzeri sipariş verilmesi gerekmektedir. Güncel ürünlerimizi web sitemiz üzerinden inceleyebilirsiniz."
+  },
+  {
+    "category": "Kargo & Teslimat",
+    "title": "Bugün kargoya teslim",
+    "content": "Merhabalar, ürününüz bugün kargoya teslim edilecektir."
+  },
+
+  {
+    "category": "Tamirat",
+    "title": "Ücretsiz tamirat teklifi",
+    "content": "Merhaba, yaşadığınız durum için kusura bakmayın lütfen. Ürününüzün tamiratını ücretsiz olarak sağlayalım; daha sağlam olması için de elimizden geleni yapalım."
+  },
+  {
+    "category": "Tamirat",
+    "title": "Tamirat gönderim notu",
+    "content": "Sizden ricamız; iade siparişleri ile karışmaması adına paketinizin içerisine tamirat yapılacağını ve geri gönderim bilgilerinizi not olarak eklemeniz. Teşekkür ederiz."
+  },
+  {
+    "category": "Tamirat",
+    "title": "Tamirat süresi",
+    "content": "Tamirat işlemleri manuel olarak yapıldığı için süreç biraz uzayabilmektedir. Ürününüz kargoya verilmiştir, en kısa sürede size ulaşacaktır."
+  },
+
+  {
+    "category": "Yönlendirme",
+    "title": "WhatsApp destek hattı",
+    "content": "Merhabalar, buradaki yoğunluk nedeniyle mesajlarınız geride kalabiliyor. Ürününüzle ilgili sorununuz için 0850 308 99 73 numaralı WhatsApp Destek Hattımızdan iletişime geçerseniz süreci çok daha hızlı ilerletebiliriz."
+  }
+]

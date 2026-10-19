@@ -1,0 +1,124 @@
+[
+  {
+    "category": "Kargo & Teslimat",
+    "title": "Kargo süresi (termin)",
+    "content": "Merhaba, siparişiniz size bir termin süresi vermektedir; tahmini kargoya teslim sürenize bakabilirsiniz. Ürünler 1-3 iş günü içerisinde kargoya verilmekte olup çıkış sağlandığında tarafınıza SMS ile bilgilendirme yapılmaktadır. Kampanya dönemlerinde bu süreler uzayabilmektedir."
+  },
+  {
+    "category": "Kargo & Teslimat",
+    "title": "Kargo firmamız",
+    "content": "Merhaba, Sürat Kargo firması ile çalışıyoruz efendim. Siparişiniz Sürat Kargo ile gönderilecektir."
+  },
+  {
+    "category": "Kargo & Teslimat",
+    "title": "Gecikme için özür",
+    "content": "Merhaba, yaşanan gecikme için özür dileriz. Yoğunluk kaynaklı bir aksama söz konusu; siparişinizi sizlere ulaştırmak için elimizden geldiğince işlemlerinizi hızlandırıyoruz. Aciliyetinizi depo birimimize ilettik, en kısa sürede kargo çıkışınız sağlanacaktır. Anlayışınız için teşekkür ederiz."
+  },
+
+  {
+    "category": "Stok & Ürün",
+    "title": "Stok yenilenecek (Gelince Haber Ver)",
+    "content": "Merhaba, stoklarımız en kısa süre içerisinde yenilenecektir. Net bir gün veya tarih maalesef veremiyoruz. Ürün sistemde görünmüyorsa stoğumuz tükenmiş demektir; beğendiğiniz ürünün \"Gelince Haber Ver\" seçeneğini açarsanız stoğa girdiği anda haberdar olabilirsiniz. 🌸"
+  },
+  {
+    "category": "Stok & Ürün",
+    "title": "Unisex kullanım",
+    "content": "Merhaba, ürünlerimiz unisex modeldir; bay ve bayan kullanımına uygundur."
+  },
+  {
+    "category": "Stok & Ürün",
+    "title": "Su itici özellik",
+    "content": "Merhaba, ürünün kumaş yapısı su itici özelliğe sahiptir, suyu içine çekmez. Ancak su birikintisi veya yoğun suya karşı %100 su geçirmezlik garantisi veremiyoruz."
+  },
+  {
+    "category": "Stok & Ürün",
+    "title": "Ortopedik taban",
+    "content": "Merhaba efendim, ürünlerimizin tabanları ortopediktir. Spor ve bot ürünlerimizde ortopediklik oranı değişmekte olup spor ürünlerimizde bu oran daha yüksektir."
+  },
+  {
+    "category": "Stok & Ürün",
+    "title": "Topuk boyu",
+    "content": "Merhaba, ürünlerimizin topuk boyları ortalama 3 - 3,5 cm arasında değişmektedir. Bot ve daha yüksek topuklu modellerimiz ortalama 4 cm yüksekliğindedir."
+  },
+  {
+    "category": "Stok & Ürün",
+    "title": "Ürün temizliği",
+    "content": "Merhaba efendim, ürünlerimizi makinede yıkamanızı tavsiye etmiyoruz. Temizliğini ayakkabı silme suları, temizleme köpükleri ve ürüne zarar vermeyecek yumuşaklıkta bir bezle sağlayabilirsiniz. 🌸"
+  },
+  {
+    "category": "Stok & Ürün",
+    "title": "3 ay garanti",
+    "content": "Merhaba, ürünlerimizde imalat veya firma kaynaklı sorunlara karşı 3 aylık garanti süresi vardır. Bu süre içinde bir sorun yaşamanız halinde ürünü analiz için firmamıza göndermeniz gerekmektedir. İnceleme sonrası tarafınıza olumlu veya olumsuz dönüş sağlanacaktır."
+  },
+
+  {
+    "category": "Beden & Ölçü",
+    "title": "Tam kalıp",
+    "content": "Merhaba efendim, ürünlerimizin kalıpları tamdır. Kullandığınız numara kaç bedense aynı numaradan sipariş edebilir veya ayak cm tablomuzdan kontrol ederek seçim yapabilirsiniz."
+  },
+  {
+    "category": "Beden & Ölçü",
+    "title": "CM - Numara tablosu",
+    "content": "Ayak uzunluğu - numara tablomuz:\n\nÇocuk: 9,4 cm - 16 | 10,0 cm - 17 | 10,7 cm - 18 | 11,4 cm - 19 | 12,0 cm - 20 | 12,7 cm - 21 | 13,4 cm - 22 | 14,0 cm - 23 | 14,7 cm - 24 | 15,4 cm - 25 | 16,0 cm - 26 | 16,7 cm - 27 | 17,4 cm - 28 | 18,0 cm - 29 | 18,7 cm - 30 | 19,3 cm - 31\n\nYetişkin: 20,0 cm - 32 | 20,7 cm - 33 | 21,3 cm - 34 | 22,0 cm - 35 | 22,7 cm - 36 | 23,3 cm - 37 | 24,0 cm - 38 | 24,7 cm - 39 | 25,3 cm - 40 | 26,0 cm - 41 | 26,7 cm - 42 | 27,3 cm - 43 | 28,0 cm - 44 | 28,7 cm - 45 | 29,3 cm - 46 | 30,0 cm - 47"
+  },
+
+  {
+    "category": "Sipariş İşlemleri",
+    "title": "Sipariş numarası isteme",
+    "content": "Merhaba, TB ile başlayan sipariş numaranızı iletirseniz hemen kontrol sağlayalım."
+  },
+  {
+    "category": "Sipariş İşlemleri",
+    "title": "Sipariş sonrası değişiklik yapılamaz",
+    "content": "Merhaba, siparişinizi oluşturduktan sonra teslimat adresi, numara, model, renk değişimi gibi işlemler yapılamamaktadır. Sipariş durumu uygunsa iptal ederek yeniden sipariş oluşturabilirsiniz."
+  },
+  {
+    "category": "Sipariş İşlemleri",
+    "title": "Kapıda ödeme yok",
+    "content": "Merhaba, maalesef kapıda ödeme seçeneğimiz bulunmamaktadır. Siparişlerinizi yalnızca online ödeme ile oluşturabilirsiniz."
+  },
+
+  {
+    "category": "İade & Değişim",
+    "title": "Değişim yok, iade var",
+    "content": "Merhaba efendim, değişim seçeneğimiz maalesef sistemsel olarak mevcut değildir. Dilerseniz iade talebinde bulunabilir, ardından istediğiniz numaradan yeni sipariş oluşturabilirsiniz."
+  },
+  {
+    "category": "İade & Değişim",
+    "title": "Kolay iade nasıl yapılır",
+    "content": "Merhaba efendim, ürünü iade etmek için teslim tarihinden itibaren 14 günü geçmemiş olması gerekmektedir. \"Siparişlerim\" sayfasından KOLAY İADE adımını kullanabilir, sistemin verdiği kod ile ürünü belirlenen kargo şirketine teslim ederek firmamıza gönderebilirsiniz."
+  },
+  {
+    "category": "İade & Değişim",
+    "title": "İade süreci ve para iadesi",
+    "content": "Merhaba, iadeniz firmamıza ulaştığı andan itibaren incelenip durumuna göre onaylanır. Onay sonrası ödemeniz, alışveriş yaptığınız kartınıza 2-5 iş günü içerisinde aktarılır."
+  },
+  {
+    "category": "İade & Değişim",
+    "title": "Yanlış / kusurlu ürün özrü",
+    "content": "Merhaba, öncelikle yaşadığınız sorun için çok özür dileriz. Yanlış veya kusurlu ürün talebiniz için iade oluşturmanızı rica ediyoruz; süreci hızlıca takip edeceğiz."
+  },
+
+  {
+    "category": "Pazaryeri",
+    "title": "Trendyol - değişim yapılamıyor",
+    "content": "Merhaba, Trendyol uygulaması üzerinden almış olduğunuz siparişlerde maalesef değişim işlemi sağlanamamaktadır. 14 gün içerisinde iade ederek yeni ürün satın alabilirsiniz."
+  },
+  {
+    "category": "Pazaryeri",
+    "title": "Trendyol müşteri hizmetlerine yönlendirme",
+    "content": "Merhaba, bu konuda maalesef buradan yardımcı olamıyoruz. Trendyol müşteri hizmetleri ile iletişime geçerek problemi çözümleyebilirsiniz."
+  },
+
+  {
+    "category": "Yönlendirme",
+    "title": "Müşteri hizmetleri numarası",
+    "content": "Merhaba, 0850 480 75 57 numaralı müşteri hizmetlerimiz ile iletişime geçerseniz size hemen yardımcı olalım."
+  },
+
+  {
+    "category": "İş Birliği",
+    "title": "İş birliği - takipçi kriteri",
+    "content": "Merhaba, ilginiz ve iş birliği talebiniz için çok teşekkür ederiz. 💙 Şu anki iş birliği politikamız gereği yalnızca 50.000 ve üzeri takipçiye sahip içerik üreticileri ile iş birliği gerçekleştirebiliyoruz. İlginiz için tekrar teşekkür eder, içerik üretim yolculuğunuzda başarılar dileriz."
+  }
+]

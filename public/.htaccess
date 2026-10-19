@@ -1,0 +1,70 @@
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    # img/media-src'teki blob: → Mesajlar panelindeki WhatsApp medyası auth'lu API'den
+    # blob olarak çekilip gösterilir (CSP blob:'suz iken görseller 0x0 boş kalıyordu).
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob:; font-src 'self' data:; connect-src 'self' https://graph.facebook.com; frame-ancestors 'none'"
+
+    # Public iptal/iade sayfası tenant mağazasına (tonnyblack.com.tr/iade) iframe ile
+    # gömülebilsin diye SADECE /iade/ yolunda frame izni açılır. Admin paneli ve diğer
+    # tüm yollar yukarıdaki 'none' / SAMEORIGIN ile korunur.
+    <If "%{REQUEST_URI} =~ m#^/iade(/|$)#">
+        Header always unset X-Frame-Options
+        Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://graph.facebook.com; frame-ancestors 'self' https://www.tonnyblack.com.tr https://tonnyblack.com.tr"
+    </If>
+
+    # Widget demo sayfaları (…-demo.html): panel ve tema galerisi bunları kendi origin'inden
+    # iframe'e alır (telefon çerçevesi önizlemeleri). Yalnız aynı origin; dış site gömemez.
+    <If "%{REQUEST_URI} =~ m#-demo#">
+        Header always unset X-Frame-Options
+        Header always set X-Frame-Options "SAMEORIGIN"
+        Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob:; font-src 'self' data:; connect-src 'self' https://graph.facebook.com; frame-ancestors 'self'"
+    </If>
+
+    # 360° ürün görüntüleyici (three.js/model-viewer): GLB içindeki dokular blob: URL
+    # üzerinden fetch edilir, Draco çözücü WASM ister. Bu izinler SADECE /widget/360/
+    # yolunda açılır; global politika yukarıda değişmeden kalır.
+    <If "%{REQUEST_URI} =~ m#^/widget/360(/|$)#">
+        Header always unset X-Frame-Options
+        Header always set X-Frame-Options "SAMEORIGIN"
+        Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' blob:; frame-ancestors 'self'"
+    </If>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Handle X-XSRF-Token Header
+    RewriteCond %{HTTP:x-xsrf-token} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# SPA index.html tarayıcıda heuristik önbelleklenmesin — deploy sonrası bayat HTML
+# silinmiş hash'li asset'lere işaret edip beyaz sayfa bırakıyordu (23 Tem 2026)
+<IfModule mod_headers.c>
+    <FilesMatch "^index\.html$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+</IfModule>

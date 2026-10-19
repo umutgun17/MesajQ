@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Chatbot Widget — Web & Mobil Önizleme</title>
+<style>
+  :root { color-scheme: light; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+         margin: 0; background: #0f172a; color: #e2e8f0; }
+  header { padding: 16px 22px; border-bottom: 1px solid #1e293b; display: flex; align-items: center;
+           gap: 14px; flex-wrap: wrap; }
+  header h1 { font-size: 16px; margin: 0; font-weight: 700; }
+  header .hint { font-size: 12.5px; color: #94a3b8; }
+  .tpl { display: flex; gap: 6px; margin-left: auto; }
+  .tpl a { font-size: 12px; color: #cbd5e1; text-decoration: none; border: 1px solid #334155;
+           border-radius: 8px; padding: 5px 10px; }
+  .tpl a.on { background: #2563eb; border-color: #2563eb; color: #fff; }
+  .stage { display: flex; gap: 28px; padding: 26px 22px 40px; align-items: flex-start;
+           flex-wrap: wrap; justify-content: center; }
+  .dev { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+  .dev.phone { width: 390px; height: 780px; border-radius: 34px; border: 10px solid #1e293b; }
+  .dev.desk { width: 1100px; max-width: calc(100vw - 44px); height: 780px; border: 1px solid #334155; }
+  .lab { font-size: 12px; color: #94a3b8; margin: 0 0 8px 4px; font-weight: 600; letter-spacing: .3px; }
+  .col { display: flex; flex-direction: column; }
+  iframe { width: 100%; height: 100%; border: 0; display: block; }
+  @media (max-width: 900px) { .dev.desk { display: none; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>AI Chatbot — web &amp; mobil önizleme</h1>
+  <span class="hint">Sağ alttaki balona tıklayın · "44 numara siyah spor ayakkabı" yazın</span>
+  <span class="tpl" id="tpl"></span>
+</header>
+<div class="stage">
+  <div class="col">
+    <p class="lab">MOBİL — 390 × 780</p>
+    <div class="dev phone"><iframe id="f1" title="mobil"></iframe></div>
+  </div>
+  <div class="col">
+    <p class="lab">MASAÜSTÜ</p>
+    <div class="dev desk"><iframe id="f2" title="masaüstü"></iframe></div>
+  </div>
+</div>
+<script>
+  var TPLS = ['elegant', 'modern', 'soft', 'minimal'];
+  var cur = new URLSearchParams(location.search).get('template') || '';
+  var bar = document.getElementById('tpl');
+  TPLS.forEach(function (t) {
+    var a = document.createElement('a');
+    a.href = '?template=' + t;
+    a.textContent = t;
+    if (t === cur) a.className = 'on';
+    bar.appendChild(a);
+  });
+  var src = 'chat-demo.html' + (cur ? '?template=' + encodeURIComponent(cur) : '');
+  document.getElementById('f1').src = src;
+  document.getElementById('f2').src = src;
+</script>
+</body>
+</html>
