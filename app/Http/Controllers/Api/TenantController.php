@@ -90,6 +90,14 @@ class TenantController extends Controller
         // Create default channels for this tenant
         $this->createDefaultChannels($tenant->id);
 
+        // SaaS: deneme aboneliği başlat, ardından süper adminin seçtiği ürün listesi plan listesini ezer
+        app(\App\Services\Billing\SubscriptionManager::class)->startTrial($tenant);
+        $tenant->refresh();
+        $settings = $tenant->settings ?? [];
+        $settings['products'] = $products;
+        $tenant->forceFill(['settings' => $settings])->save();
+        $admin->forceFill(['is_owner' => true, 'email_verified_at' => now()])->save();
+
         return response()->json([
             'id' => $tenant->id,
             'name' => $tenant->name,
@@ -149,19 +157,7 @@ class TenantController extends Controller
      */
     protected function createDefaultChannels(int $tenantId): void
     {
-        $defaults = [
-            ['type' => 'facebook-message',   'name' => 'Facebook Messenger', 'category' => 'Gelen Mesaj'],
-            ['type' => 'facebook-comment',   'name' => 'Facebook',           'category' => 'Yorum'],
-            ['type' => 'instagram-message',  'name' => 'Instagram',          'category' => 'Gelen Mesaj'],
-            ['type' => 'instagram-comment',  'name' => 'Instagram',          'category' => 'Yorum'],
-            ['type' => 'trendyol-product',   'name' => 'Trendyol',           'category' => 'Ürün Sorusu'],
-            ['type' => 'trendyol-order',     'name' => 'Trendyol',           'category' => 'Sipariş Sorusu'],
-            ['type' => 'hepsiburada-product','name' => 'Hepsiburada',        'category' => 'Ürün Sorusu'],
-            ['type' => 'hepsiburada-order',  'name' => 'Hepsiburada',        'category' => 'Sipariş Sorusu'],
-            ['type' => 'ticimax-ticket',     'name' => 'Ticimax',            'category' => 'Destek Talebi'],
-            ['type' => 'whatsapp',           'name' => 'WhatsApp',           'category' => 'Gelen Mesaj'],
-            ['type' => 'email',              'name' => 'E-posta',            'category' => 'E-posta'],
-        ];
+        $defaults = config('saas.default_channels', []);
 
         foreach ($defaults as $ch) {
             Channel::create([

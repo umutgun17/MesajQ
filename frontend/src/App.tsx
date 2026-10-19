@@ -7,6 +7,7 @@ import ForgotPasswordPage from '@/pages/saas/ForgotPasswordPage'
 import ResetPasswordPage from '@/pages/saas/ResetPasswordPage'
 import BillingPage from '@/pages/saas/BillingPage'
 import AdminSubscriptionsPage from '@/pages/saas/AdminSubscriptionsPage'
+import TenantsPage from '@/pages/TenantsPage'
 import HomePage from '@/pages/HomePage'
 import DashboardPage from '@/pages/DashboardPage'
 import MessagesPage from '@/pages/MessagesPage'
@@ -52,6 +53,7 @@ export default function App() {
             <Route path="/ads/meta-app" element={<Navigate to="/settings/meta-app" replace />} />
             <Route path="/billing" element={<BillingPage />} />
             <Route path="/admin/subscriptions" element={<AdminSubscriptionsPage />} />
+            <Route path="/admin/tenants" element={<TenantsPage />} />
             <Route path="/settings/channels" element={<ChannelsPage />} />
             <Route path="/settings/users" element={<UsersPage />} />
             <Route path="/settings/users/activity" element={<UserActivityPage />} />

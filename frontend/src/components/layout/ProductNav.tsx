@@ -150,7 +150,8 @@ export function useProducts(): Product[] {
         {
           title: t('superAdmin'),
           items: [
-            { to: '/admin/subscriptions', icon: Building2, label: t('nav.subscriptions'), show: su },
+            { to: '/admin/tenants', icon: Building2, label: t('nav.tenants'), show: su },
+            { to: '/admin/subscriptions', icon: CreditCard, label: t('nav.subscriptions'), show: su },
           ],
         },
       ],
