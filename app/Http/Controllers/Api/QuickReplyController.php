@@ -66,7 +66,7 @@ class QuickReplyController extends Controller
         $item = QuickReply::create([
             'title' => $validated['title'],
             'content' => $validated['content'],
-            'category' => $validated['category'] ?: 'Genel',
+            'category' => ($validated['category'] ?? null) ?: 'Genel',
             'is_active' => $validated['is_active'] ?? true,
             'sort_order' => $validated['sort_order'] ?? 0,
             'is_default' => false,

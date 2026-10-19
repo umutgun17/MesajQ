@@ -28,5 +28,7 @@ Route::get('/app', $spa);
 Route::get('/app/{any}', $spa)->where('any', '.*');
 // Public iade/iptal sayfası (müşteri tarafı, iframe) — yalnız iade modülü olan üründe anlamlı
 Route::get('/iade/{any?}', $spa)->where('any', '.*');
+// /public/... ile gelen yanlış adresleri köke taşı (ör. /public/app/ → /app/)
+Route::get('/public/{any?}', fn (string $any = '') => redirect('/' . $any, 301))->where('any', '.*');
 // Eski kök yolları panele taşı
 Route::get('/login', fn () => redirect('/app/login'));
