@@ -11,7 +11,6 @@ export const platforms: PlatformDef[] = [
   { key: 'meta', name: 'Meta', channelTypes: ['facebook-message', 'instagram-message', 'facebook-comment', 'instagram-comment', 'whatsapp'], color: 'text-blue-700', bg: 'bg-blue-100', borderColor: 'border-blue-500' },
   { key: 'trendyol', name: 'Trendyol', channelTypes: ['trendyol-product', 'trendyol-order'], color: 'text-orange-700', bg: 'bg-orange-100', borderColor: 'border-orange-500' },
   { key: 'hepsiburada', name: 'Hepsiburada', channelTypes: ['hepsiburada-product', 'hepsiburada-order'], color: 'text-purple-700', bg: 'bg-purple-100', borderColor: 'border-purple-500' },
-  { key: 'ticimax', name: 'Ticimax', channelTypes: ['ticimax-ticket'], color: 'text-red-700', bg: 'bg-red-100', borderColor: 'border-red-500' },
   { key: 'email', name: 'E-posta', channelTypes: ['email'], color: 'text-blue-700', bg: 'bg-blue-100', borderColor: 'border-blue-500' },
 ]
 

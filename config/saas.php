@@ -19,7 +19,7 @@ return [
     ],
 
     // Bu ürün ailesinin kapsadığı Tenant::PRODUCTS anahtarları (plan dışı anahtarlar reddedilir)
-    'products' => ['inbox', 'chatbot', 'store', 'call'],
+    'products' => ['inbox', 'chatbot'],
 
     'billing' => [
         'trial_days' => (int) env('SAAS_TRIAL_DAYS', 14),
@@ -61,14 +61,12 @@ return [
         ['type' => 'trendyol-order', 'name' => 'Trendyol', 'category' => 'Sipariş Sorusu'],
         ['type' => 'hepsiburada-product', 'name' => 'Hepsiburada', 'category' => 'Ürün Sorusu'],
         ['type' => 'hepsiburada-order', 'name' => 'Hepsiburada', 'category' => 'Sipariş Sorusu'],
-        ['type' => 'ticimax-ticket', 'name' => 'Ticimax', 'category' => 'Destek Talebi'],
     ],
 
     // Kurulum sihirbazı adımları
     'onboarding' => [
         ['key' => 'verify', 'check' => 'email_verified', 'title' => 'E-postanı doğrula', 'desc' => 'Gelen kutundaki doğrulama bağlantısına tıkla.', 'to' => '/profile'],
         ['key' => 'channel', 'check' => 'channel_connected', 'title' => 'İlk kanalını bağla', 'desc' => 'WhatsApp, Instagram, Messenger, e-posta ya da pazaryeri soru kutusu.', 'to' => '/settings/channels'],
-        ['key' => 'store', 'check' => 'store_connected', 'title' => 'Mağazanı bağla (isteğe bağlı)', 'desc' => 'Ticimax/ikas bağlanınca sipariş ve müşteri bilgisi konuşmanın yanında görünür.', 'to' => '/settings/channels'],
         ['key' => 'team', 'check' => 'team_invited', 'title' => 'Ekibini davet et', 'desc' => 'Temsilcileri ekle, sayfa yetkilerini ver.', 'to' => '/settings/users'],
         ['key' => 'billing', 'check' => 'billing_profile', 'title' => 'Fatura bilgilerini gir', 'desc' => 'Deneme bitince kesintisiz devam için.', 'to' => '/billing'],
     ],

@@ -12,7 +12,7 @@ class Tenant extends Model
     use HasFactory, SoftDeletes;
 
     /** Bu ürün ailesinin alt ürünleri — tenant aboneliği (plan) bu eksende yazılır (settings.products). */
-    public const PRODUCTS = ['inbox', 'chatbot', 'store', 'call'];
+    public const PRODUCTS = ['inbox', 'chatbot'];
 
     /**
      * Ürün → sayfa-yetkisi (permission middleware anahtarları) eşlemesi.
@@ -22,8 +22,6 @@ class Tenant extends Model
     public const PRODUCT_PAGES = [
         'inbox' => ['dashboard', 'messages', 'comments', 'email_archive', 'reports'],
         'chatbot' => ['chatbot'],
-        'store' => ['crm'],
-        'call' => ['calls'],
     ];
 
     /**

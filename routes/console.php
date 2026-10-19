@@ -39,26 +39,11 @@ Schedule::command("trendyol:sync-questions --status=WAITING_FOR_ANSWER --limit=5
 Schedule::command("trendyol:sync-questions --resync --status=ANSWERED --limit=50 --pages=2")->everyFifteenMinutes()->withoutOverlapping(10)->appendOutputTo($log("trendyol-questions"));
 Schedule::command("hepsiburada:sync-questions --status=1 --limit=50 --pages=2")->everyFiveMinutes()->withoutOverlapping(5)->appendOutputTo($log("hepsiburada-questions"));
 Schedule::command("hepsiburada:sync-questions --resync --status=2 --limit=50 --pages=2")->everyFifteenMinutes()->withoutOverlapping(10)->appendOutputTo($log("hepsiburada-questions"));
-Schedule::command("ticimax:sync-tickets --limit=50 --pages=2")->everyFiveMinutes()->withoutOverlapping(5)->appendOutputTo($log("ticimax-tickets"));
-Schedule::command("ticimax:sync-tickets --resync --limit=50 --pages=2")->everyFifteenMinutes()->withoutOverlapping(10)->appendOutputTo($log("ticimax-tickets"));
 Schedule::command("email:sync")->everyThreeMinutes()->withoutOverlapping(10)->appendOutputTo($log("email-sync"));
 Schedule::command("email:health-check")->twiceDaily(7, 19)->withoutOverlapping(10)->appendOutputTo($log("email-health"));
-Schedule::command("call:sync --minutes=10")->everyFiveMinutes()->withoutOverlapping(5)->appendOutputTo($log("call-sync"));
 Schedule::call($forEachTenant("wa:sync-quick-replies", ["--refresh" => true]))->hourlyAt(15)->name("wa-quick-replies")->withoutOverlapping(30);
 
 // ── AI ──
 Schedule::command("embeddings:generate --target=training --limit=2000")->everyFifteenMinutes()->withoutOverlapping(10)->appendOutputTo($log("embeddings"));
 Schedule::command("embeddings:generate --target=products --limit=100")->hourly()->withoutOverlapping(30)->appendOutputTo($log("embeddings"));
 
-// ── Mağaza bağlamı (sipariş/müşteri/ürün) — konuşma yanında sipariş bilgisi, AI cevapları, web chat ──
-Schedule::command("crm:sync-orders-live --mode=new")->everyMinute()->withoutOverlapping(5)->appendOutputTo($log("crm-orders"));
-Schedule::command("crm:sync-orders-live --mode=changes")->everyTwoMinutes()->withoutOverlapping(5)->appendOutputTo($log("crm-orders"));
-Schedule::command("crm:sync-orders-live --mode=status")->hourlyAt(7)->withoutOverlapping(30)->appendOutputTo($log("crm-orders"));
-Schedule::command("crm:sync-orders-live --mode=safety")->dailyAt("04:00")->withoutOverlapping(60)->appendOutputTo($log("crm-orders"));
-Schedule::command("crm:refresh-open-orders")->everyFifteenMinutes()->withoutOverlapping(14)->appendOutputTo($log("crm-orders"));
-Schedule::command("crm:sync-stock --minutes=10")->everyFiveMinutes()->withoutOverlapping(5)->appendOutputTo($log("crm-stock"));
-Schedule::command("crm:sync-members --limit=100")->dailyAt("03:30")->withoutOverlapping(120)->appendOutputTo($log("crm-members"));
-Schedule::command("crm:sync-products --limit=100")->dailyAt("03:00")->withoutOverlapping(120)->appendOutputTo($log("crm-products"));
-Schedule::command("ikas:sync --what=orders")->everyFifteenMinutes()->withoutOverlapping(10)->appendOutputTo($log("ikas-sync"));
-Schedule::command("ikas:sync --what=customers")->hourly()->withoutOverlapping(30)->appendOutputTo($log("ikas-sync"));
-Schedule::command("search:verify-images")->dailyAt("03:45")->withoutOverlapping(60)->appendOutputTo($log("search-images"));

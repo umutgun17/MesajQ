@@ -21,15 +21,6 @@ import UsersPage from '@/pages/UsersPage'
 import UserActivityPage from '@/pages/UserActivityPage'
 import SettingsPage from '@/pages/SettingsPage'
 import ProfilePage from '@/pages/ProfilePage'
-import CrmProductsPage from '@/pages/crm/CrmProductsPage'
-import CrmProductDetailPage from '@/pages/crm/CrmProductDetailPage'
-import CrmOrdersPage from '@/pages/crm/CrmOrdersPage'
-import CrmOrderDetailPage from '@/pages/crm/CrmOrderDetailPage'
-import CrmCustomersPage from '@/pages/crm/CrmCustomersPage'
-import CrmCustomerDetailPage from '@/pages/crm/CrmCustomerDetailPage'
-import CallsPage from '@/pages/calls/CallsPage'
-import CallDetailPage from '@/pages/calls/CallDetailPage'
-import CallsSettingsPage from '@/pages/CallsSettingsPage'
 import ChatbotSettingsPage from '@/pages/ChatbotSettingsPage'
 import ChatConversationsPage from '@/pages/ChatConversationsPage'
 import ChatProductAnalyticsPage from '@/pages/ChatProductAnalyticsPage'
@@ -50,15 +41,6 @@ export default function App() {
             <Route path="/messages/dashboard" element={<DashboardPage />} />
             <Route path="/comments" element={<CommentsPage />} />
             <Route path="/email-archive" element={<EmailArchivePage />} />
-            <Route path="/calls" element={<CallsPage />} />
-            <Route path="/calls/settings" element={<CallsSettingsPage />} />
-            <Route path="/calls/:id" element={<CallDetailPage />} />
-            <Route path="/crm/products" element={<CrmProductsPage />} />
-            <Route path="/crm/products/:id" element={<CrmProductDetailPage />} />
-            <Route path="/crm/orders" element={<CrmOrdersPage />} />
-            <Route path="/crm/orders/:id" element={<CrmOrderDetailPage />} />
-            <Route path="/crm/customers" element={<CrmCustomersPage />} />
-            <Route path="/crm/customers/:id" element={<CrmCustomerDetailPage />} />
             <Route path="/chatbot" element={<ChatbotSettingsPage />} />
             <Route path="/chatbot/konusmalar" element={<ChatConversationsPage />} />
             <Route path="/chatbot/urun-performansi" element={<ChatProductAnalyticsPage />} />

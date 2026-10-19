@@ -6,7 +6,7 @@ import type { Channel, CredentialField } from '@/types'
 import { platforms, subChannelLabels } from '@/lib/platformConfig'
 import { formatRelativeTime } from '@/lib/channelUtils'
 import {
-  Facebook, ShoppingBag, Headphones, MessageCircle, Globe, Mail,
+  Facebook, ShoppingBag, MessageCircle, Globe, Mail,
   CheckCircle, Clock, Eye, EyeOff, KeyRound, X, Save, Loader2,
   Info, ExternalLink, Link2, AlertCircle, Instagram, ChevronRight,
 } from 'lucide-react'
@@ -16,7 +16,6 @@ const platformIcons: Record<string, React.ReactNode> = {
   meta: <Facebook size={22} />,
   trendyol: <ShoppingBag size={22} />,
   hepsiburada: <ShoppingBag size={22} />,
-  ticimax: <Headphones size={22} />,
   whatsapp: <MessageCircle size={22} />,
   email: <Mail size={22} />,
 }

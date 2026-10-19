@@ -10,7 +10,6 @@ use App\Http\Controllers\Api\CrmCustomerController;
 use App\Http\Controllers\Api\CrmOrderController;
 use App\Http\Controllers\Api\CrmProductController;
 use App\Http\Controllers\Api\DashboardController;
-use App\Http\Controllers\Api\CallController;
 use App\Http\Controllers\Api\EmailMessageController;
 use App\Http\Controllers\Api\KnowledgeBaseController;
 use App\Http\Controllers\Api\MessageController;
@@ -20,8 +19,6 @@ use App\Http\Controllers\Api\QuickReplyController;
 use App\Http\Controllers\Api\SettingsController;
 use App\Http\Controllers\Api\TenantController;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\VapiController;
-use App\Http\Controllers\Api\VapiWebhookController;
 use App\Http\Controllers\Api\WebhookController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,15 +33,7 @@ Route::post('/webhook/meta', [WebhookController::class, 'handle'])->middleware('
 // ── Meta OAuth (callback is public — uses encrypted state for auth) ──
 Route::get('/meta/oauth/callback', [MetaOAuthController::class, 'callback'])->middleware('throttle:30,1');
 
-// ── VAPI Voice AI (secured by server secret, no auth) ──
-Route::post('/vapi/tools', [VapiController::class, 'handleToolCall'])->middleware('throttle:120,1');
-Route::post('/webhook/vapi', [VapiWebhookController::class, 'handle'])->middleware('throttle:120,1');
-Route::post('/webhook/ikas', [\App\Http\Controllers\Api\IkasWebhookController::class, 'handle'])->middleware('throttle:600,1');
-
 // Widget routes are registered in bootstrap/app.php under /w/ prefix (outside api/ to avoid HandleCors)
-
-// ── Token-authenticated streaming (audio tag can't send Bearer header) ──
-Route::get('/calls/{call}/stream', [CallController::class, 'stream'])->middleware('throttle:120,1');
 
 // ── SaaS: kayıt, şifre, faturalama, kurulum ──
 require __DIR__.'/saas.php';
@@ -109,17 +98,6 @@ Route::middleware(['auth:sanctum', 'tenant', 'subscription', 'throttle:120,1', '
         Route::get('/email-messages', [EmailMessageController::class, 'index']);
         Route::get('/email-messages/counts', [EmailMessageController::class, 'counts']);
         Route::patch('/email-messages/{emailMessage}/reclassify', [EmailMessageController::class, 'reclassify']);
-    });
-
-    // Calls
-    Route::middleware('permission:calls')->group(function () {
-        Route::get('/calls/stats', [CallController::class, 'stats']);
-        Route::get('/calls/extensions', [CallController::class, 'extensions']);
-        Route::get('/calls/chart/hourly', [CallController::class, 'hourlyChart']);
-        Route::get('/calls/chart/daily', [CallController::class, 'dailyChart']);
-        Route::get('/calls/sentiment', [CallController::class, 'sentimentStats']);
-        Route::get('/calls', [CallController::class, 'index']);
-        Route::get('/calls/{call}', [CallController::class, 'show']);
     });
 
     // Comments

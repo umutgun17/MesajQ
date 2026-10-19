@@ -2,12 +2,10 @@ import { Fragment } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '@/contexts/AuthContext'
-import { crmBrand } from '@/lib/tenant'
 import {
   Activity,
   LayoutDashboard,
   Inbox,
-  Phone,
   MessagesSquare,
   Settings,
   MessageSquare,
@@ -15,36 +13,12 @@ import {
   Bot,
   FileBarChart2,
   BarChart3,
-  Package,
-  Globe,
   Radio,
-  Smartphone,
   Sparkles,
-  Gift,
-  Zap,
-  Settings2,
-  Search,
   Users,
   UserRound,
   BookOpen,
   Building2,
-  Store,
-  UserCheck,
-  ShoppingBag,
-  Gauge,
-  KeyRound,
-  FileSearch,
-  ClipboardList,
-  ScanSearch,
-  SlidersHorizontal,
-  PanelBottom,
-  LayoutGrid,
-  Flame,
-  Images,
-  BadgePercent,
-  Ghost,
-  Ruler,
-  ShoppingBasket,
   X,
   CreditCard,
 } from 'lucide-react'
@@ -152,117 +126,6 @@ export function useProducts(): Product[] {
       ],
     },
     {
-      key: 'call',
-      label: t('products.call'),
-      icon: Phone,
-      chip: 'bg-sky-100 text-sky-600',
-      prefixes: ['/calls'],
-      groups: [
-        {
-          title: t('nav.analysisGroup'),
-          items: [
-            { to: '/calls', icon: Phone, label: t('nav.callAnalysis'), end: true, show: hasPermission('calls') },
-          ],
-        },
-        // NetGSM bağlantısı — çağrı verileri bu entegrasyondan çekilir
-        {
-          title: t('products.settings'),
-          items: [
-            { to: '/calls/settings', icon: Settings2, label: t('nav.callsSettings'), show: hasPermission('settings') },
-          ],
-        },
-      ],
-    },
-    {
-      // Ticimax CRM — kendi ürün anahtarı 'store' ile tenant'a ayrıca atanır (sayfa yetkisi 'crm' ortak)
-      key: 'store',
-      label: t('products.store'),
-      kicker: crmBrand(user),
-      icon: Store,
-      chip: 'bg-emerald-100 text-emerald-600',
-      prefixes: ['/crm'],
-      groups: [
-        {
-          title: t('nav.managementGroup'),
-          items: [
-            { to: '/crm/products', icon: Package, label: t('nav.products'), show: hasPermission('crm') },
-            { to: '/crm/customers', icon: UserCheck, label: t('nav.members'), show: hasPermission('crm') },
-            { to: '/crm/orders', icon: ShoppingBag, label: t('nav.orders'), show: hasPermission('crm') },
-          ],
-        },
-      ],
-    },
-    {
-      // CRO — Dönüşüm Oranı Optimizasyonu: huni özeti + aksiyon planı + otomatik site denetimi
-      key: 'cro',
-      label: t('products.cro'),
-      icon: Gauge,
-      chip: 'bg-orange-100 text-orange-600',
-      prefixes: ['/cro', '/search-insights'],
-      groups: [
-        {
-          title: t('nav.analysisGroup'),
-          items: [
-            { to: '/cro', icon: Gauge, label: t('nav.croOverview'), end: true, show: hasPermission('cro') },
-            { to: '/cro/audit', icon: ScanSearch, label: t('nav.croAudit'), show: hasPermission('cro') },
-          ],
-        },
-        // Site deneyimi: mağazadaki tema öğelerini Yunbi verisiyle değiştiren widget'lar (filtre, arama; sırada ürün öneri)
-        {
-          title: t('nav.siteExperienceGroup'),
-          items: [
-            { to: '/cro/filter', icon: SlidersHorizontal, label: t('nav.croFilter'), show: hasPermission('cro') },
-            { to: '/search-insights', icon: Search, label: t('nav.smartSearch'), show: hasPermission('cro') },
-            { to: '/cro/menu', icon: LayoutGrid, label: t('nav.croMenu'), show: hasPermission('cro') },
-            { to: '/cro/bottombar', icon: PanelBottom, label: t('nav.croBottomBar'), show: hasPermission('cro') },
-            { to: '/cro/hero', icon: Flame, label: t('nav.croHero'), show: hasPermission('cro') },
-            { to: '/cro/flash', icon: Zap, label: t('nav.croFlash'), show: hasPermission('cro') },
-            { to: '/cro/gallery', icon: Images, label: t('nav.croGallery'), show: hasPermission('cro') },
-            { to: '/cro/badges', icon: BadgePercent, label: t('nav.croBadges'), show: hasPermission('cro') },
-            { to: '/cro/variant', icon: Ruler, label: t('nav.croVariant'), show: hasPermission('cro') },
-            { to: '/cro/cart', icon: ShoppingBasket, label: t('nav.croCart'), show: hasPermission('cro') },
-            { to: '/cro/app', icon: Smartphone, label: t('nav.croAppPromo'), show: hasPermission('cro') },
-            { to: '/cro/notfound', icon: Ghost, label: t('nav.croNotFound'), show: hasPermission('cro') },
-            { to: '/cro/foryou', icon: Sparkles, label: t('nav.croForYou'), show: hasPermission('cro') },
-            { to: '/cro/welcome', icon: Gift, label: t('nav.croWelcome'), show: hasPermission('cro') },
-          ],
-        },
-        {
-          title: t('nav.managementGroup'),
-          items: [
-            { to: '/cro/actions', icon: ClipboardList, label: t('nav.croActions'), show: hasPermission('cro') },
-          ],
-        },
-      ],
-    },
-    {
-      // SEO & GEO — arama motoru + yapay zekâ asistanı görünürlüğü: site taraması, sayfa analizi, AI görünürlük; sırada hız, Search Console, aksiyon planı, ajan
-      key: 'seo',
-      label: t('products.seo'),
-      icon: Globe,
-      chip: 'bg-violet-100 text-violet-600',
-      prefixes: ['/seo'],
-      groups: [
-        {
-          title: t('nav.analysisGroup'),
-          items: [
-            { to: '/seo', icon: Globe, label: t('nav.seoOverview'), end: true, show: hasPermission('seo') },
-            { to: '/seo/pages', icon: FileSearch, label: t('nav.seoPages'), show: hasPermission('seo') },
-            { to: '/seo/geo', icon: Sparkles, label: t('nav.seoGeo'), show: hasPermission('seo') },
-            { to: '/seo/performance', icon: Gauge, label: t('nav.seoPerformance'), show: hasPermission('seo') },
-            { to: '/seo/keywords', icon: KeyRound, label: t('nav.seoKeywords'), show: hasPermission('seo') },
-          ],
-        },
-        {
-          title: t('nav.managementGroup'),
-          items: [
-            { to: '/seo/actions', icon: ClipboardList, label: t('nav.seoActions'), show: hasPermission('seo') },
-            { to: '/seo/agent', icon: Bot, label: t('nav.seoAgent'), show: hasPermission('seo') },
-          ],
-        },
-      ],
-    },
-    {
       key: 'settings',
       label: t('products.settings'),
       icon: Settings,
@@ -320,7 +183,7 @@ export function useActiveProduct(products: Product[]): Product | undefined {
 }
 
 // 'store' (Ticimax CRM) bilinçli olarak üst listede değil: alt bölümde Ayarlar'ın hemen üstünde durur
-const RAIL_TOP_KEYS = ['overview', 'inbox', 'chatbot', 'call']
+const RAIL_TOP_KEYS = ['overview', 'inbox', 'chatbot']
 
 interface ProductNavProps {
   mobileOpen: boolean

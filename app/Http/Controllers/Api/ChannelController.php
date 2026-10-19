@@ -113,61 +113,8 @@ class ChannelController extends Controller
                 ],
             ],
         ],
-        'ticimax' => [
-            'name' => 'Ticimax',
-            'channel_types' => ['ticimax-ticket', 'ticimax-ecommerce'],
-            'fields' => [
-                [
-                    'key' => 'wsdl_url',
-                    'label' => 'WSDL URL',
-                    'type' => 'url',
-                    'store' => 'credentials',
-                    'for' => ['ticimax-ticket', 'ticimax-ecommerce'],
-                    'info' => 'Ticimax mağazanızın web servis adresi. Genellikle https://www.siteadi.com/Servis/CustomServis.svc?wsdl formatındadır.',
-                ],
-                [
-                    'key' => 'auth_code',
-                    'label' => 'WS Yetki Kodu',
-                    'type' => 'password',
-                    'store' => 'credentials',
-                    'for' => ['ticimax-ticket', 'ticimax-ecommerce'],
-                    'info' => 'Ticimax yönetim paneli → Ayarlar → Web Servis Ayarları sayfasından alınan yetki kodu (UyeKodu).',
-                ],
-            ],
-        ],
-        'ikas' => [
-            'name' => 'ikas',
-            'channel_types' => ['ikas-ecommerce'],
-            'fields' => [
-                [
-                    'key' => 'store_name',
-                    'label' => 'Mağaza Adı (myikas alt alan adı)',
-                    'type' => 'text',
-                    'store' => 'credentials',
-                    'for' => ['ikas-ecommerce'],
-                    'info' => 'ikas admin adresinizdeki mağaza adı: https://MAGAZA.myikas.com/admin → sadece MAGAZA kısmı.',
-                    'helpUrl' => 'https://ikas.dev/docs/api/getting-started/authentication',
-                ],
-                [
-                    'key' => 'client_id',
-                    'label' => 'Client ID',
-                    'type' => 'text',
-                    'store' => 'credentials',
-                    'for' => ['ikas-ecommerce'],
-                    'info' => 'ikas admin → Uygulamalar → Uygulamalarım → Özel Uygulama Oluştur adımında üretilen Client ID.',
-                ],
-                [
-                    'key' => 'client_secret',
-                    'label' => 'Client Secret',
-                    'type' => 'password',
-                    'store' => 'credentials',
-                    'for' => ['ikas-ecommerce'],
-                    'info' => 'Aynı özel uygulamanın Client Secret değeri. Gerekli izinler: READ_PRODUCTS, READ_ORDERS, READ_CUSTOMERS, READ_INVENTORIES.',
-                ],
-            ],
-        ],
         'netgsm' => [
-            'name' => 'NetGSM',
+            'name' => 'Netgsm SMS',
             'channel_types' => ['netgsm-call'],
             'fields' => [
                 [
@@ -271,14 +218,6 @@ class ChannelController extends Controller
             ['key' => 'merchant_id', 'label' => 'Merchant ID', 'type' => 'text'],
             ['key' => 'api_key', 'label' => 'API Key (Kullanıcı Adı)', 'type' => 'password'],
             ['key' => 'api_secret', 'label' => 'API Secret (Servis Anahtarı)', 'type' => 'password'],
-        ],
-        'ticimax-ticket' => [
-            ['key' => 'wsdl_url', 'label' => 'WSDL URL', 'type' => 'url'],
-            ['key' => 'auth_code', 'label' => 'Yetki Kodu (UyeKodu)', 'type' => 'password'],
-        ],
-        'ticimax-ecommerce' => [
-            ['key' => 'wsdl_url', 'label' => 'WSDL URL', 'type' => 'url'],
-            ['key' => 'auth_code', 'label' => 'Yetki Kodu (UyeKodu)', 'type' => 'password'],
         ],
         'facebook-message' => [],
         'instagram-message' => [],

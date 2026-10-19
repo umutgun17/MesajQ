@@ -8,7 +8,7 @@ import OnboardingChecklist from '@/components/saas/OnboardingChecklist'
 import { BRAND } from '@/lib/brand'
 
 // 8 alt ürün ana sayfada büyük kart; CRM + Ayarlar altta kompakt satır
-const MAIN_KEYS = ['inbox', 'chatbot', 'call']
+const MAIN_KEYS = ['inbox', 'chatbot']
 
 export default function HomePage() {
   const { t } = useTranslation()
