@@ -704,7 +704,8 @@ KESİN KURALLAR:
         // Bu düzeltme cevapları Tonny Black'in iş kurallarıdır (kapıda ödeme yok,
         // fiziksel mağaza yok, 1+1 kampanya). Başka tenant'ın cevabını bu
         // kurallarla EZMEK yanlış bilgi üretir → yalnız tenant 1'e uygulanır.
-        if ($tenantId !== 1) {
+        // SaaS çatalı: tek markaya özel kurallar uygulanmaz (tenant 1 = ilk müşteri olabilir).
+        if ($tenantId !== 1 || ! (bool) config('saas.legacy_policies', false)) {
             return [$content, $confidence];
         }
 
